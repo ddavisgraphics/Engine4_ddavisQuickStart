@@ -49,10 +49,20 @@ git clone https://github.com/wvulibraries/engineAPI-Modules.git
 
 echo "Setting up engine Modules and includes"
 mkdir -p $SERVERURL/phpincludes/
-ln -s /vagrant/template/* $GITDIR/engineAPI/engine/template/
 ln -s $GITDIR/engineAPI-Modules/src/modules/* $GITDIR/engineAPI/engine/engineAPI/latest/modules/
 ln -s $GITDIR/engineAPI/engine/ $SERVERURL/phpincludes/
 
+echo "Application Templates folder to dev template folder"
+rm -f $GITDIR/engineAPI/engine/template
+ln -s /vagrant/template/Application/template/ $GITDIR/engineAPI/engine/template/
+
+echo "FormBuilder templates to dev template folder"
+rm -f $GITDIR/engineAPI/phpincludes/engine/engineAPI/latest/modules/form/formTemplates/
+ln -s /vagrant/template/FormBuilder/formTemplates/ $GITDIR/engineAPI/phpincludes/engine/engineAPI/latest/modules/form/formTemplates/
+
+echo "FieldBuilder templates folder to vagrant template folder"
+rm -f $GITDIR/engineAPI/phpincludes/engine/engineAPI/latest/modules/form/formTemplates/
+ln -s /vagrant/template/FormBuilder/fieldTemplates/ $GITDIR/engineAPI/phpincludes/engine/engineAPI/latest/modules/form/fieldTemplates/
 
 echo "Makes the public folder and syncs it to the application source"
 mkdir -p $SERVERURL/$DOCUMENTROOT
