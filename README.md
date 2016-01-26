@@ -22,10 +22,10 @@ My startup for using EngineAPI to rapidly dev app.
 - Bower
    * For getting and managing dependencies
 
- - Grunt
+- Grunt
    * For Preprocessing, Cancatenation, Minification, and Uglification of JS and SCSS.
 
- - The SCSS stack uses
+- The SCSS stack uses
    * bourbon
    * neat
    * normalize
